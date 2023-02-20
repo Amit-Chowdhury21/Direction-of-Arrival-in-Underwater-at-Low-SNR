@@ -34,28 +34,21 @@ X = X+noise;      %Insert Additive White Gaussain Noise (AWGN)
 Rx = cov(X');                     %Data covarivance matrix
 
 [eigenVec,eigenVal] = eig(Rx);    %Find the eigenvalues and eigenvectors of Rx
-
 Vn = eigenVec(:,1:Nr-K);          %Estimate noise subspace (Note that eigenvalues sorted ascendig on columns of "eigenVal")
 
 theta = -90:0.5:90;       %Grid points of Peak Search
 
 for i=1:length(theta)
-
     SS = zeros(Nr,1);
-
     SS = exp(-1j*2*pi*d*(0:Nr-1)'*sind(theta(i))/lambda);
-
     PP = SS'*(Vn*Vn')*SS;
-
     Pmusic(i) = 1/ PP;
-
 end
 
 Pmusic=abs(Pmusic./max(Pmusic));
 Pmusic1 = real(10*log10(Pmusic)); %Spatial Spectrum function
 
 [pks, locs] = findpeaks(Pmusic,theta,'SortStr','descend','Annotate','extents');
-
 MUSIC_Estim = sort(locs(1:K))
 
 figure;
