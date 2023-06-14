@@ -1,7 +1,6 @@
 %%% MATLAB Code for Direction of Arrival in aerial. 
-%%% Code written by MohammadReza Jabbari-Email: Mo.re.jabbari@gmail.com
-%%% Department of Electrical and Computer Engineering
-%%% Isfahan University of Technology-IRAN
+%%% Thank you MohammadReza Jabbari-Email: Mo.re.jabbari@gmail.com
+
 
 clc
 clear
